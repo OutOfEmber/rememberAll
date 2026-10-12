@@ -1,0 +1,46 @@
+:root{
+    --colorbg:#F5EFE6;
+    --coloracc:#6F4E37;
+    --colortxt:#2B1D14;
+
+}
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+body{
+    background-color: #F5EFE6;
+}
+a{
+    color:var(--colortxt);
+    text-decoration: none;
+}
+.hero{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+    height: 100vh;
+}
+.herobtn{
+    background-color: var(--coloracc);
+    width:8%;
+    height: 30px;
+    border-radius: 5px;
+    color:white;
+    text-align: center;
+    align-items: center;
+    border-color: transparent;
+}
+.herobtn:hover{
+    cursor: pointer;
+}
+.title{
+    margin:20px 0px;
+    font-size: bold;
+}
+.subtitle{
+    padding: 10px 0px;
+}
