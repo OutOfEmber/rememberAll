@@ -10,23 +10,51 @@
     <div class="hero">
         <h1 class="title">Кофейня</h1>
         <h2 class="subtitle">Кумыс вместо молока</h2>
-        <button class="herobtn" onclick="openModal()">Смотреть меню</button>
+        <button class="herobtn">Смотреть меню</button>
+        <div class="about"></div>
     </div>
-<div class="modal hidden">
-        <div class="modal hidden">
+
+    <!-- menu -->
+    <div class="modal-container hidden">
+        <div class="modal">
             <h2>Меню</h2>
-            <div class="menu">cofe</div>
-            <button class="closeModal" onclick="closeModal()">Закрыть</button>
+            <div class="menu_search">
+                <input class="search" placeholder="Поиск">
+                <button class="submit">Найти</button>
+            </div>
+                <div class="menu">
+                <div class="menu_item">
+                    <div class="menu_item_info">
+                        <img class="menu_item_img" src="https://majestycoffee.com/cdn/shop/articles/americano_b74a8154-454b-4f74-9a6c-95fbc4152ed3.jpg?v=1684048195" alt="cofe">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                    </div>
+                    <p class="menu_item_price">900p</p>
+                    <button class="menu_item_btn">В корзину</button>
+                </div>
+                <div class="menu_item">
+                    <div class="menu_item_info">
+                        <img class="menu_item_img" src="https://majestycoffee.com/cdn/shop/articles/americano_b74a8154-454b-4f74-9a6c-95fbc4152ed3.jpg?v=1684048195" alt="cofe">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                    </div>
+                    <p class="menu_item_price">900p</p>
+                    <button class="menu_item_btn">В корзину</button>
+                </div>
+                
+            </div>
+            <button class="closeModal">X</button>
         </div>
-</div>
+    </div>
     </body>
     <script>
-        const modal=document.querySelectorAll('.modal')
-        function openModal(){
-            modal.forEach(m=>m.classList.remove('hidden'))
-        }
-        function closeModal(){
-            modal.forEach(m=>m.classList.add('hidden'))
-        }
+        const modal = document.querySelector('.modal-container')
+        const herobtn = document.querySelector('.herobtn')
+        const closeModal = document.querySelector('.closeModal')
+        const title = document.querySelector('.title')
+        herobtn.addEventListener('click', ()=>{
+            modal.classList.remove('hidden')
+        })
+        closeModal.addEventListener('click', ()=>{
+            modal.classList.add('hidden')
+        })
     </script>
 </html> 
