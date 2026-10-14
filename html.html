@@ -6,11 +6,27 @@
     <link rel="stylesheet" href="css.css">
     <title>Кофейня</title>
 </head>
-<body>
+    <body>
     <div class="hero">
         <h1 class="title">Кофейня</h1>
         <h2 class="subtitle">Кумыс вместо молока</h2>
         <button class="herobtn" onclick="openModal()">Смотреть меню</button>
     </div>
-</body>
-</html>
+<div class="modal hidden">
+        <div class="modal hidden">
+            <h2>Меню</h2>
+            <div class="menu">cofe</div>
+            <button class="closeModal" onclick="closeModal()">Закрыть</button>
+        </div>
+</div>
+    </body>
+    <script>
+        const modal=document.querySelectorAll('.modal')
+        function openModal(){
+            modal.forEach(m=>m.classList.remove('hidden'))
+        }
+        function closeModal(){
+            modal.forEach(m=>m.classList.add('hidden'))
+        }
+    </script>
+</html> 
