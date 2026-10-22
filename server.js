@@ -54,7 +54,6 @@ function authenticateToken(req, res, next) {
     });
 }
 
-// МАРШРУТ РЕГИСТРАЦИИ
 app.post('/auth/register', async (req, res) => {
     let { email, password } = req.body;
 
@@ -62,7 +61,6 @@ app.post('/auth/register', async (req, res) => {
         return res.status(400).json({ error: 'Заполните все поля' });
     }
 
-    // Чистим данные от случайных пробелов и приводим к одному регистру
     email = email.trim().toLowerCase();
     password = password.trim();
 
@@ -88,7 +86,6 @@ app.post('/auth/register', async (req, res) => {
     }
 });
 
-// МАРШРУТ АВТОРИЗАЦИИ
 app.post('/auth/login', (req, res) => {
     let { email, password } = req.body;
 
