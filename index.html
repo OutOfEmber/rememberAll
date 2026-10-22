@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form id="registerForm">
+        <h2>Регистрация</h2>
+        <input type="text" id="regEmail" placeholder="example@gmail.com" required>
+        <input type="password" id="regPassword" placeholder="••••••" required>
+        <button type="submit">Зарегистрироваться</button>
+        <div id="regError" class="error"></div>
+    </form>
+
+    <form id="loginForm">
+        <h2>Авторизация</h2>
+        <input type="text" id="loginEmail" placeholder="example@gmail.com" required>
+        <input type="password" id="loginPassword" placeholder="••••••" required>
+        <button type="submit">Войти</button>
+        <div id="loginError" class="error"></div>
+    </form>
+
+    <div>
+        <button id="loadPeopleBtn">Загрузить людей</button>
+        <button id="logoutBtn" class="logout-btn" style="display: none;">Выйти</button>
+        <div id="peopleError" class="error"></div>
+        <pre id="output" style="display: none;"></pre>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
