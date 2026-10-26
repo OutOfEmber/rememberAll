@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            overflow: hidden;
+        }
+        .slider {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        button{
+            position: absolute;
+            top:50%;
+        }
+        .forward{
+            position: absolute;
+            right:0;
+        }
+
+        img{
+            width: 80%;
+            height: 80%;
+        }
+        
+        p{
+            position: absolute;
+            top:90%;
+            color:white
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="track">
+            <div class="slide"><img src="PetrovichCHAD.jpg"><p>1</p></div>
+            <div class="slide"><img src="PetrovichCHAD.jpg"><p>2</p></div>
+            <div class="slide"><img src="PetrovichCHAD.jpg"><p>3</p></div>
+            <!-- <div class="slide"><img src="PetrovichCHAD.jpg">2</div> -->
+            <!-- <div class="slide"><img src="PetrovichCHAD.jpg">3</div> -->
+        </div>
+        <button class="back btn">⬅</button>
+        <button class="forward btn">⮕</button>
+    </div>
+</body>
+<script>
+    const track = document.querySelector('.track')
+    const slides = document.querySelectorAll('.slide')
+    let autoTimer = null;
+    let currId = 0;
+    const btns = document.querySelectorAll('.btn')
+
+    slides.forEach(slide => {
+        slide.addEventListener('mouseover',()=>{
+            stopAuto()
+
+        })
+        slide.addEventListener('mouseout',()=>{
+            startAuto()
+        })
+    });
+    
+    btns.forEach(slide => {
+        slide.addEventListener('mouseover',()=>{
+            stopAuto()
+
+        })
+        slide.addEventListener('mouseout',()=>{
+            startAuto()
+        })
+    });
+
+
+    function startAuto() {
+    autoTimer = setInterval(() => Slide(currId + 1), 3000);
+    }
+    function stopAuto() {
+        if (autoTimer) {
+            clearInterval(autoTimer);
+            autoTimer = null;
+            console.log(autoTimer);
+
+        }
+    }
+    function Slide(index){
+        if(index < 0) index = slides.length-1
+        if(index >= slides.length) index = 0
+
+        currId = index
+
+        track.style.transform = `translateX(-${currId * 100}%)`
+    }
+
+    document.querySelector('.back').addEventListener('click', ()=> Slide(currId - 1))
+    document.querySelector('.forward').addEventListener('click', ()=> Slide(currId + 1))
+    startAuto()
+</script>
+</html>
