@@ -53,6 +53,18 @@
             color:white
         }
 
+        form{
+            position:absolute;
+            top:90%;
+        }
+        .sub{
+            position: absolute;
+            top:0;
+            left:100%;
+        }
+        #phoneForm{
+            background-color: white;
+        }
     </style>
 </head>
 <body>
@@ -67,7 +79,28 @@
         <button class="back btn">⬅</button>
         <button class="forward btn">⮕</button>
     </div>
+
+    <form id="phoneForm" novalidate>
+        <label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone" inputmode="numeric" autocomplete="tel"
+        placeholder="+7 (___) ___-__-__" maxlength="18">
+        <span id="phoneError" style="color:red"></span>
+        <button class='sub' type="submit">Отправить</button>
+    </form>
+
+
 </body>
+<script src="phoneMask.js"></script>
+
+
+
+
+
+
+
+
+
+
 <script>
     const track = document.querySelector('.track')
     const slides = document.querySelectorAll('.slide')
