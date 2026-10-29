@@ -1,0 +1,22 @@
+{
+  "name": "cache",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "crypto": "^1.0.1",
+    "express": "^5.3.0",
+    "sequelize": "^3.30.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
