@@ -1,8 +1,9 @@
 const Router = require('express')
 const router = new Router()
+const controller = require('../controllers/coffeeController')
 
-router.post('/',(req,res)=>{return res.status(200)})
-router.get('/',(req,res)=>{return res.status(200)})
-router.get('/:id',(req,res)=>{return res.status(200)})
+router.post('/',controller.create)
+router.get('/',controller.getAll)
+router.get('/:id',controller.getById)
 
 module.exports = router
