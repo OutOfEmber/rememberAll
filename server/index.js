@@ -23,7 +23,7 @@ app.use(errorHandler)
 const start = async () =>{
     try{
         await sequelize.authenticate()
-        await sequelize.sync()
+        await sequelize.sync({force:false})
         app.listen(PORT ,() => console.log(`Server running on ${PORT}`));
     }catch(e){
         console.log(e)

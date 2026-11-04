@@ -13,6 +13,10 @@ const Coffee = sequelize.define('coffee',{
     img:{type:DataTypes.STRING, allowNull: false},
     price:{type:DataTypes.INTEGER, allowNull: false}
 })
+const Type = sequelize.define('type',{
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name:{type:DataTypes.STRING, unique: true, allowNull: false},
+})
 const CoffeeInfo = sequelize.define('coffeeInfo',{
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     title:{type:DataTypes.STRING, unique: true, allowNull: false},
@@ -25,11 +29,14 @@ const BasketItems = sequelize.define('basketItems',{
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
 
+User.hasOne(Basket)
+Basket.belongsTo(User)
+
 Coffee.hasOne(CoffeeInfo)
 CoffeeInfo.belongsTo(Coffee)
 
-User.hasOne(Basket)
-Basket.belongsTo(User)
+Type.hasMany(Coffee)
+Coffee.belongsTo(Type)
 
 Basket.hasMany(BasketItems)
 BasketItems.belongsTo(Basket)
@@ -37,6 +44,7 @@ BasketItems.belongsTo(Basket)
 module.exports = {
     User,
     Coffee,
+    Type,
     CoffeeInfo,
     Basket,
     BasketItems
