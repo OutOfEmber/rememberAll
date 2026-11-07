@@ -2,7 +2,7 @@ const {Coffee, CoffeeInfo} = require('../models/models')
 const ApiError = require('../error/ApiError')
 const uuid = require('uuid')
 const path = require('path')
-const apiError = require('../error/ApiError')
+
 
 class CoffeeController{
     async create(req, res, next) {
@@ -16,7 +16,7 @@ class CoffeeController{
             if(info){
                 info = JSON.parse(info)
                 info.forEach(i => {
-                    CoffeInfo.create({
+                    CoffeeInfo.create({
                         title: i.title,
                         description: i.description,
                         coffeeId: coffee.id
@@ -54,7 +54,7 @@ class CoffeeController{
     async update(req, res, next){
         try{
             const {id} = req.params
-            const {name, img, price} = req.body
+            const {name, img, price, info} = req.body
             const coffee = await Coffee.findOne({where:{id}})
             if(!coffee){
                 return next(ApiError.badRequest(`Кофе с id ${id} не найден`))
@@ -63,6 +63,7 @@ class CoffeeController{
                 {name,img,price},
                 {where: {id}}
             )
+            await coffee.reload()
             return res.json(coffee)
         }catch(error){
             return next(ApiError.badRequest(error.message))
@@ -75,6 +76,7 @@ class CoffeeController{
             if(!coffee){
                 return next(ApiError.badRequest(`Кофе с id ${id} не найден`))
             }
+            await CoffeeInfo.destroy({where:{coffeeId: id}})
             await Coffee.destroy({where:{id}})
             return res.json({message:"Запись удалена"})
         }catch(error){

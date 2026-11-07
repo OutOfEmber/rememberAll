@@ -22,9 +22,3 @@ module.exports = function(role){
     }
 }
 }
-
-
-
-
-
-

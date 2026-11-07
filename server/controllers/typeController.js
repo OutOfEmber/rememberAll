@@ -1,7 +1,6 @@
 const {Type} = require('../models/models')
 const ApiError = require('../error/ApiError')
-const uuid = require('uuid')
-const path = require('path')
+
 
 class TypeController{
     async create(req, res, next) {
@@ -38,7 +37,7 @@ class TypeController{
                 {name},
                 {where: {id}}
             )
-            return res.json(coffee)
+            return res.json(type)
         }catch(error){
             return next(ApiError.badRequest(error.message))
         }

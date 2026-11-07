@@ -2,7 +2,6 @@ const ApiError = require('../error/ApiError.js')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const {User, Basket} = require('../models/models.js')
-const apiError = require('../error/ApiError.js')
 
 const generateJwt = (id, email, role) =>{
     return jwt.sign(
