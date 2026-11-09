@@ -2,7 +2,6 @@ const {Coffee, CoffeeInfo} = require('../models/models')
 const ApiError = require('../error/ApiError')
 const uuid = require('uuid')
 const path = require('path')
-const apiError = require('../error/ApiError')
 
 class CoffeeController{
     async create(req, res, next) {
@@ -11,7 +10,7 @@ class CoffeeController{
             const {img} = req.files
             let fileName = uuid.v4() + ".jpg"
             img.mv(path.resolve(__dirname,'..','static',fileName))
-            const coffee = await Coffee.create({ name, price, typeId, img:fileName })
+            const coffee = await Coffee.create({ name, price, typeId, img:fileName})
             
             if(info){
                 info = JSON.parse(info)

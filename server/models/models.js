@@ -1,16 +1,21 @@
 const sequelize = require('../db.js')
 const { DataTypes } = require('sequelize')
+const PHONE_RU_REGEX = /^\+7 \(\d{3}\) \d{3}\-\d{2}\-\d{2}$/
 
 const User = sequelize.define('user',{
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     email: {type: DataTypes.STRING, unique: true,},
+    phone:{
+        type:DataTypes.STRING(18),
+        allowNull: false,
+        unique:true},
     password: {type: DataTypes.STRING},
     role: {type: DataTypes.STRING, defaultValue: "USER"},
 })
 const Coffee = sequelize.define('coffee',{
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name:{type:DataTypes.STRING, unique: true, allowNull: false},
-    img:{type:DataTypes.STRING, allowNull: false},
+    img:{type:DataTypes.STRING, allowNull: true},
     price:{type:DataTypes.INTEGER, allowNull: false}
 })
 const Type = sequelize.define('type',{

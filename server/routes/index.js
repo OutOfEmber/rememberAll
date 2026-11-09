@@ -4,7 +4,7 @@ const userRouter = require('./userRouter')
 const coffeeRouter = require('./coffeeRouter')
 const typeRouter = require('./typeRouter')
 
-router.use('/users',userRouter)
+router.use('/user',userRouter)
 router.use('/coffee',coffeeRouter)
 router.use('/type',typeRouter)
 

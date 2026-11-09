@@ -9,6 +9,7 @@ const router = require('./routes/index.js')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware.js')
 const path = require('path')
 
+
 const app = express();
 
 app.use(cors())
@@ -19,6 +20,8 @@ app.use('/api',router)
 
 
 app.use(errorHandler)
+
+
 
 const start = async () =>{
     try{

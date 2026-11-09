@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кофейня с авторизацией</title>
+    <style>
+        .hidden { display: none; }
+        .auth-box { max-width: 300px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; }
+        .coffee-container { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .coffee-card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+    <div id="auth-section" class="auth-box">
+        <form id="register-form">
+            <h2>Регистрация</h2>
+            <input type="email" placeholder="Email" id="reg-email" required>
+            <input type="phone" placeholder="+7(999) 999-99-99" id="reg-phone" required>
+            <input type="password" placeholder="Пароль" id="reg-password" required>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <hr>
+        <form id="login-form">
+            <h2>Авторизация</h2>
+            <input type="email" placeholder="Email" id="login-email" required>
+            <input type="phone" placeholder="Phone" id="reg-phone" required>
+            <input type="password" placeholder="Пароль" id="login-password" required>
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+
+    <div id="user-section" class="auth-box hidden">
+        <h2>Добро пожаловать!</h2>
+        <button id="show-coffee-btn">Показать данные кофе</button>
+        <button id="logout-btn" style="margin-top: 10px;">Выйти из аккаунта</button>
+    </div>
+
+    <div id="coffee-section" class="hidden" style="padding: 20px;">
+        <h3>Доступное меню:</h3>
+        <div id="coffee-list" class="coffee-container"></div>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
